@@ -1,19 +1,19 @@
 dir = File.dirname(__FILE__)
-#
+
 require 'uri'
 require 'rest_client'
 require 'multi_json'
 require 'websocket_td'
-#
+
 require dir + '/api/api_resource'
-#
+
 require dir + '/errors'
 require dir + '/push'
 require dir + '/historics'
 require dir + '/historics_preview'
 require dir + '/managed_source'
 require dir + '/live_stream'
-#
+
 require 'rbconfig'
 
 module DataSift
@@ -24,7 +24,7 @@ module DataSift
   class Client < ApiResource
 
     #+config+:: A hash containing configuration options for the client for e.g.
-    # {username => 'some_user', api_key => 'ds_api_key', open_timeout => 30, timeout => 30}
+    # {:username => 'some_user', :api_key => 'ds_api_key', :enable_ssl => true, :open_timeout => 30, :timeout => 30}
     def initialize (config)
       if config == nil
         raise InvalidConfigError.new ('Config cannot be nil')
