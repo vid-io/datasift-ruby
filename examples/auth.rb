@@ -1,5 +1,5 @@
 class DataSiftExample
-  require '../lib/datasift'
+  require File.dirname(__FILE__) + '/../lib/datasift'
 
   def initialize
     @username = 'DATASIFT_USERNAME'
