@@ -1,4 +1,6 @@
-require '../examples/auth'
+dir = File.dirname(__FILE__)
+
+require dir + '/../examples/auth'
 require 'test/unit'
 class CoreApiTest < Test::Unit::TestCase
 
@@ -16,7 +18,7 @@ class CoreApiTest < Test::Unit::TestCase
   def test_csdl_validation
     assert_true @datasift.valid?(@csdl)
     assert_raise_kind_of BadRequestError do
-      datasift.valid?(@csdl+' random string')
+      @datasift.valid?(@csdl+' random string')
     end
   end
 
