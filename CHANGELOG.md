@@ -1,6 +1,16 @@
 CHANGELOG
 ================================
 
+v.3.0.0.beta2 (2013-12-02)
+-------------------------
+
+Minor fixes to the 3.0.0 beta release
+
+* Requires websocket_td v.0.0.4+
+* Tests now run with Rake
+* Fixes a broken reference to the VERSION file
+* Renamed 'tests' directory to 'test'
+
 v.3.0.0.beta (2013-11-07)
 -------------------------
 
