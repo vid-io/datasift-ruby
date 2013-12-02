@@ -19,7 +19,7 @@ require 'rbconfig'
 module DataSift
   #
   IS_WINDOWS = (RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/)
-  VERSION    = File.open('../VERSION').first
+  VERSION    = File.open(File.dirname(__FILE__) + '/../VERSION').first
 
   class Client < ApiResource
 
