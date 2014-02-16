@@ -1,18 +1,16 @@
-dir = File.dirname(__FILE__)
-
 require 'uri'
 require 'rest_client'
 require 'multi_json'
 require 'websocket_td'
 
-require dir + '/api/api_resource'
+require 'datasift/api/api_resource'
 
-require dir + '/errors'
-require dir + '/push'
-require dir + '/historics'
-require dir + '/historics_preview'
-require dir + '/managed_source'
-require dir + '/live_stream'
+require 'datasift/errors'
+require 'datasift/push'
+require 'datasift/historics'
+require 'datasift/historics_preview'
+require 'datasift/managed_source'
+require 'datasift/live_stream'
 
 require 'rbconfig'
 
@@ -27,7 +25,7 @@ module DataSift
     # {:username => 'some_user', :api_key => 'ds_api_key', :enable_ssl => true, :open_timeout => 30, :timeout => 30}
     def initialize (config)
       if config == nil
-        raise InvalidConfigError.new ('Config cannot be nil')
+        raise InvalidConfigError.new('Config cannot be nil')
       end
       if config.key?(:api_key) == false || config.key?(:username) == false
         raise InvalidConfigError.new('A valid username and API key are required')

@@ -1,9 +1,7 @@
-dir = File.dirname(__FILE__)
-
-require dir + '/../examples/auth'
+require File.dirname(__FILE__) + '/../examples/auth'
 require 'test/unit'
-class CoreApiTest < Test::Unit::TestCase
 
+class CoreApiTest < Test::Unit::TestCase
   def setup
     auth      = DataSiftExample.new
     @datasift = auth.datasift
@@ -18,7 +16,7 @@ class CoreApiTest < Test::Unit::TestCase
   def test_csdl_validation
     assert_true @datasift.valid?(@csdl)
     assert_raise_kind_of BadRequestError do
-      @datasift.valid?(@csdl+' random string')
+      @datasift.valid?(@csdl + ' random string')
     end
   end
 
@@ -40,5 +38,4 @@ class CoreApiTest < Test::Unit::TestCase
     assert_not_nil stream[:data]
     assert_not_nil stream[:data][:hash]
   end
-
 end
